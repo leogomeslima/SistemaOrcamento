@@ -5,15 +5,15 @@ namespace SistemaOrcamento.Api.Models;
 
 public partial class CentrosCusto
 {
-    public int CentroCustoId { get; set; }
+    public int CentroCustoID { get; set; }
 
     public string Nome { get; set; } = null!;
 
     public string Codigo { get; set; } = null!;
 
-    public int GestorId { get; set; }
+    public int GestorID { get; set; }
 
-    public int? CentroCustoPaiId { get; set; }
+    public int? CentroCustoPaiID { get; set; }
 
     public virtual CentrosCusto? CentroCustoPai { get; set; }
 

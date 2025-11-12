@@ -25,24 +25,24 @@ public partial class SistemaOrcamentoContext : DbContext
     {
         modelBuilder.Entity<CentrosCusto>(entity =>
         {
-            entity.HasKey(e => e.CentroCustoId).HasName("PK__CentrosC__7A50D5B277255D3C");
+            entity.HasKey(e => e.CentroCustoID).HasName("PK__CentrosC__7A50D5B277255D3C");
 
             entity.ToTable("CentrosCusto");
 
             entity.HasIndex(e => e.Codigo, "UQ__CentrosC__06370DAC191A9081").IsUnique();
 
-            entity.Property(e => e.CentroCustoId).HasColumnName("CentroCustoID");
-            entity.Property(e => e.CentroCustoPaiId).HasColumnName("CentroCustoPaiID");
+            entity.Property(e => e.CentroCustoID).HasColumnName("CentroCustoID");
+            entity.Property(e => e.CentroCustoPaiID).HasColumnName("CentroCustoPaiID");
             entity.Property(e => e.Codigo).HasMaxLength(20);
-            entity.Property(e => e.GestorId).HasColumnName("GestorID");
+            entity.Property(e => e.GestorID).HasColumnName("GestorID");
             entity.Property(e => e.Nome).HasMaxLength(100);
 
             entity.HasOne(d => d.CentroCustoPai).WithMany(p => p.InverseCentroCustoPai)
-                .HasForeignKey(d => d.CentroCustoPaiId)
+                .HasForeignKey(d => d.CentroCustoPaiID)
                 .HasConstraintName("FK_CentrosCusto_Pai");
 
             entity.HasOne(d => d.Gestor).WithMany(p => p.CentrosCustos)
-                .HasForeignKey(d => d.GestorId)
+                .HasForeignKey(d => d.GestorID)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_CentrosCusto_Gestor");
         });
@@ -73,11 +73,11 @@ public partial class SistemaOrcamentoContext : DbContext
 
         modelBuilder.Entity<PlanoConta>(entity =>
         {
-            entity.HasKey(e => e.PlanoContaId).HasName("PK__PlanoCon__FB9B5B94C86EF99B");
+            entity.HasKey(e => e.PlanoContaID).HasName("PK__PlanoCon__FB9B5B94C86EF99B");
 
             entity.HasIndex(e => e.CodigoConta, "UQ__PlanoCon__800717B66A76F390").IsUnique();
 
-            entity.Property(e => e.PlanoContaId).HasColumnName("PlanoContaID");
+            entity.Property(e => e.PlanoContaID).HasColumnName("PlanoContaID");
             entity.Property(e => e.CodigoConta).HasMaxLength(20);
             entity.Property(e => e.Nome).HasMaxLength(100);
         });

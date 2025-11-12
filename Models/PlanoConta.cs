@@ -5,7 +5,7 @@ namespace SistemaOrcamento.Api.Models;
 
 public partial class PlanoConta
 {
-    public int PlanoContaId { get; set; }
+    public int PlanoContaID { get; set; }
 
     public string Nome { get; set; } = null!;
 
