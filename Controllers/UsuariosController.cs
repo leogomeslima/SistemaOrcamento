@@ -11,8 +11,7 @@ namespace SistemaOrcamento.Api.Controllers
     {
         
         private readonly SistemaOrcamentoContext _context;
-
-       
+               
         public UsuariosController(SistemaOrcamentoContext context)
         {
             _context = context;
@@ -35,8 +34,7 @@ namespace SistemaOrcamento.Api.Controllers
 
             
             var senhaHash = BCrypt.Net.BCrypt.HashPassword(usuarioDto.Senha);
-
-           
+                       
             var novoUsuario = new Usuario
             {
                 Nome = usuarioDto.Nome,
@@ -44,8 +42,7 @@ namespace SistemaOrcamento.Api.Controllers
                 SenhaHash = senhaHash, 
                 Role = usuarioDto.Role
             };
-
-          
+                      
             _context.Usuarios.Add(novoUsuario);
             await _context.SaveChangesAsync();
 
@@ -74,7 +71,6 @@ namespace SistemaOrcamento.Api.Controllers
                 .ToListAsync();
             return Ok(usuarios);
         }
-
 
         [HttpGet("{id}")]
         public async Task<ActionResult<UsuarioReadDto>> GetUsuarioById(int id)
