@@ -5,13 +5,13 @@ namespace SistemaOrcamento.Api.Models;
 
 public partial class Requisicao
 {
-    public int RequisicaoId { get; set; }
+    public int RequisicaoID { get; set; }
 
-    public int SolicitanteId { get; set; }
+    public int SolicitanteID { get; set; }
 
-    public int CentroCustoId { get; set; }
+    public int CentroCustoID { get; set; }
 
-    public int PlanoContaId { get; set; }
+    public int PlanoContaID { get; set; }
 
     public string Descricao { get; set; } = null!;
 
@@ -21,7 +21,7 @@ public partial class Requisicao
 
     public string Status { get; set; } = null!;
 
-    public int? AprovadorId { get; set; }
+    public int? AprovadorID { get; set; }
 
     public DateTime? DataAprovacao { get; set; }
 

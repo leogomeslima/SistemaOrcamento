@@ -84,37 +84,37 @@ public partial class SistemaOrcamentoContext : DbContext
 
         modelBuilder.Entity<Requisicao>(entity =>
         {
-            entity.HasKey(e => e.RequisicaoId).HasName("PK__Requisic__8120ACF1388BBB6D");
+            entity.HasKey(e => e.RequisicaoID).HasName("PK__Requisic__8120ACF1388BBB6D");
 
-            entity.Property(e => e.RequisicaoId).HasColumnName("RequisicaoID");
-            entity.Property(e => e.AprovadorId).HasColumnName("AprovadorID");
-            entity.Property(e => e.CentroCustoId).HasColumnName("CentroCustoID");
+            entity.Property(e => e.RequisicaoID).HasColumnName("RequisicaoID");
+            entity.Property(e => e.AprovadorID).HasColumnName("AprovadorID");
+            entity.Property(e => e.CentroCustoID).HasColumnName("CentroCustoID");
             entity.Property(e => e.DataAprovacao).HasColumnType("datetime");
             entity.Property(e => e.DataSolicitacao)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime");
             entity.Property(e => e.Descricao).HasMaxLength(500);
-            entity.Property(e => e.PlanoContaId).HasColumnName("PlanoContaID");
-            entity.Property(e => e.SolicitanteId).HasColumnName("SolicitanteID");
+            entity.Property(e => e.PlanoContaID).HasColumnName("PlanoContaID");
+            entity.Property(e => e.SolicitanteID).HasColumnName("SolicitanteID");
             entity.Property(e => e.Status).HasMaxLength(20);
             entity.Property(e => e.ValorSolicitado).HasColumnType("decimal(18, 2)");
 
             entity.HasOne(d => d.Aprovador).WithMany(p => p.RequisicoAprovadors)
-                .HasForeignKey(d => d.AprovadorId)
+                .HasForeignKey(d => d.AprovadorID)
                 .HasConstraintName("FK_Requisicoes_Aprovador");
 
             entity.HasOne(d => d.CentroCusto).WithMany(p => p.Requisicos)
-                .HasForeignKey(d => d.CentroCustoId)
+                .HasForeignKey(d => d.CentroCustoID)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Requisicoes_CentroCusto");
 
             entity.HasOne(d => d.PlanoConta).WithMany(p => p.Requisicos)
-                .HasForeignKey(d => d.PlanoContaId)
+                .HasForeignKey(d => d.PlanoContaID)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Requisicoes_PlanoConta");
 
             entity.HasOne(d => d.Solicitante).WithMany(p => p.RequisicoSolicitantes)
-                .HasForeignKey(d => d.SolicitanteId)
+                .HasForeignKey(d => d.SolicitanteID)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Requisicoes_Solicitante");
         });
