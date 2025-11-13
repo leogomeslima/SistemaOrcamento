@@ -49,19 +49,19 @@ public partial class SistemaOrcamentoContext : DbContext
 
         modelBuilder.Entity<Orcamento>(entity =>
         {
-            entity.HasKey(e => e.OrcamentoId).HasName("PK__Orcament__4E96F759AF4A05AE");
+            entity.HasKey(e => e.OrcamentoID).HasName("PK__Orcament__4E96F759AF4A05AE");
 
             entity.ToTable("Orcamento");
 
-            entity.HasIndex(e => new { e.CentroCustoId, e.PlanoContaId, e.Ano, e.Mes }, "UQ_Orcamento_Item").IsUnique();
+            entity.HasIndex(e => new { e.CentroCustoID, e.PlanoContaId, e.Ano, e.Mes }, "UQ_Orcamento_Item").IsUnique();
 
-            entity.Property(e => e.OrcamentoId).HasColumnName("OrcamentoID");
-            entity.Property(e => e.CentroCustoId).HasColumnName("CentroCustoID");
+            entity.Property(e => e.OrcamentoID).HasColumnName("OrcamentoID");
+            entity.Property(e => e.CentroCustoID).HasColumnName("CentroCustoID");
             entity.Property(e => e.PlanoContaId).HasColumnName("PlanoContaID");
             entity.Property(e => e.ValorOrcado).HasColumnType("decimal(18, 2)");
 
             entity.HasOne(d => d.CentroCusto).WithMany(p => p.Orcamentos)
-                .HasForeignKey(d => d.CentroCustoId)
+                .HasForeignKey(d => d.CentroCustoID)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Orcamento_CentroCusto");
 

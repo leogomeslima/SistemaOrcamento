@@ -5,11 +5,12 @@ namespace SistemaOrcamento.Api.Models;
 
 public partial class Orcamento
 {
-    public int OrcamentoId { get; set; }
+    public int OrcamentoID { get; set; }
 
-    public int CentroCustoId { get; set; }
+    public int CentroCustoID { get; set; }
 
-    public int PlanoContaId { get; set; }
+    public int PlanoContaID
+    { get; set; }
 
     public int Ano { get; set; }
 
